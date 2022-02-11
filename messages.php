@@ -66,7 +66,7 @@ include 'connect.php';
             <a href="#showcase" onclick="w3_close()"
                 class="w3-bar-item w3-button w3-text-orange w3-hover-white">Recount</a>
 
-            <a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Sign Out</a>
+            <a href="sign_out.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Sign Out</a>
         </div>
 
         <div class="w3-bar-block" style="margin-top: 60px;">
@@ -88,71 +88,28 @@ include 'connect.php';
     <div class="w3-main w3-light-grey w3-twothird" style="margin-left:340px;margin-right:40px;">
 
         <div class="w3-container" style="margin-top:40px" id="showcase">
-            <h1 class="w3-xxxlarge"><b>Select Operation</b></h1>
-            <h1 class=" w3-xxlarge w3-text-teal"><b>for marked items</b></h1>
+            <h1 class="w3-xxxlarge"><b>Select Data</b></h1>
+            <h1 class=" w3-xxlarge w3-text-teal"><b>to be processed</b></h1>
         </div>
 
         <!-- End page content -->
     </div>
 
+    <form method="POST" action="confirm.php">
+    <div id="confirm-collapse3" class=" w3-main" style="margin-top: 100px; margin-left:340px;margin-right:40px;">
+        
+        <div class="" style="margin-top: 100px;">
+            <div class="w3-twothird w3-margin-bottom" style="margin-top: 20px; margin-left: 15px;">
 
-
-
-    <div class="w3-main" style="margin-top: 100px; margin-left:340px;margin-right:40px;">
-        <form method="POST">
-            <div class="" style="margin-top: 100px;">
-                <div class="w3-twothird w3-margin-bottom" style="margin-top: 20px; margin-left: 15px;">
-
-                    <button class="w3-button w3-red w3-padding-large w3-hover-black"
-                        type="submit" name="delete" style="width: 250px; margin-left: 5px; margin-right:10px; margin-bottom: 10px;">DELETE
-                        Selected</button>
-
-                    <button class="w3-button w3-red w3-padding-large w3-hover-black"
-                        type="submit" name="enter" style="width: 250px; margin-left: 5px; margin-right:10px; margin-bottom: 10px;">ENTER
-                        New</button>
-
-                    <button class="w3-button w3-red w3-padding-large w3-hover-black"
-                        type="submit" name="make_list" style="width: 250px; margin-left: 5px; margin-right:10px; margin-bottom: 10px;">CREATE
-                        List</button>
-
-                    <button class="w3-button w3-red w3-padding-large w3-hover-black"
-                        type="submit" name="email_list" style="width: 250px; margin-left: 5px; margin-right:10px; margin-bottom: 10px;">ADD
-                        Email</button>
-                </div>
+                <button class="w3-button w3-red w3-padding-large w3-hover-black"
+                    style="width: 250px; margin-left: 5px; margin-right:10px; margin-bottom: 10px;"
+                    onclick="">CONFIRM select</button>
 
             </div>
 
-            <!-- Menu Redirection -->
-            <?PHP
-                if(isset($_POST['delete'])) {
-                    
-                    $_SESSION['menu_action'] = 'delete';
-                    echo "<script>window.location.href = 'confirm.php';</script>";    
-                }
-                
-                if (isset($_POST['enter'])) {
-                    
-                    echo "<script>window.location.href = 'form.php';</script>";
-                    
-                } 
-                
-                if (isset($_POST['email_list'])) {
-                    
-                    $_SESSION['menu_action'] = 'email_list';
-                    echo "<script>window.location.href = 'confirm.php';</script>";
-        
-                } 
-                
-                if (isset($_POST['make_list'])) {
-                        
-                    $_SESSION['menu_action'] = 'make_list';
-                    echo "<script>window.location.href = 'confirm.php';</script>";
-                } 
-                
-            ?>            
-        </form>
-    </div>
+        </div>
 
+    </div>    
 
     <!-- PHP Viewer Function to fetch the messages from database -->
 
@@ -180,7 +137,7 @@ include 'connect.php';
 
     <!-- PHP/html section displays the components  -->
 
-    <form method="POST" action="">        
+            
 
     <div class="w3-main w3-light-grey w3-half" style="margin-left:340px;margin-right:40px; margin-top: 40px;">
 
@@ -195,19 +152,19 @@ include 'connect.php';
                 <div class="w3-grey w3-hover-blue-grey" style="margin-bottom: 40px;">
 
                     <div class="w3-container">
-                        <?PHP echo "<span class='w3-bar-item w3-button w3-xlarge w3-right'><input class='w3-check' type='checkbox' name='selected[]'
-                                checked='checked' value='".$selected_name."'></span>"; ?>
+                        <span class='w3-bar-item w3-button w3-xlarge w3-right'><input class='w3-check' type='checkbox' name='selected[]'
+                                checked='checked' value='<?PHP $selected_name ?>'></span>        
                         <h3><?PHP echo $view['name']; ?></h3>
                         <p class="w3-opacity"><?PHP echo $view['email']; ?></p>
                         <p><?PHP echo $view['message']; ?></p>
                         <p><?PHP echo (date($view['created_at']));?></p>
+                        
                     </div>
                 </div>
             </div>
         
         <?PHP } ?>    
-            
-
+                 
         </div>
     </div>
 
@@ -220,10 +177,11 @@ include 'connect.php';
     <!-- W3.CSS Container -->
     <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px">
         <p class="w3-right">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS"
-                target="_blank" class="w3-hover-opacity">w3.css</a></p>
+                target="_blank" class="w3-hover-opacity">w3.css</a></p>                         
     </div>
 
 
+   
 
     <script>
         // Script to open and close sidebar

@@ -1,23 +1,13 @@
 <?php
 
-if(!isset($_SESSION)) 
-{ 
-    session_start(); 
-} 
+$_SESSION['verify'] = 0;
 
-$verify = $_SESSION['verify'];
-
-if (!$verify == 1) {
-    echo "Unauthorized access";
-    exit();
-}
-
-include 'connect.php';
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
-<title>Panel Select</title>
+<title>Confirm</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -48,6 +38,7 @@ include 'connect.php';
     }
 </style>
 
+
 <body>
 
     <!-- Sidebar/menu -->
@@ -55,19 +46,18 @@ include 'connect.php';
         style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
         <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft"
             style="width:100%;font-size:22px">Close Menu</a>
+        
         <div class="w3-container">
             <h3 class="w3-padding-64" style="margin-top: 20px;"><b>Panel Menu</b></h3>
         </div>
 
+
         <div class="w3-bar-block">
-            <a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-text-orange w3-hover-white">Select</a>
+            
+            <a href="index.php" onclick="w3_close()" class="w3-bar-item w3-button  w3-hover-white">Login</a>
 
-            <a href="sign_out.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Sign Out</a>
         </div>
-
-        <div class="w3-bar-block" style="margin-top: 60px;">
-            <p class="w3-bar-item">User: <span class="w3-text-orange"><em><?PHP echo($_SESSION['user_name'])?></em></span></p>
-        </div>
+       
     </nav>
 
     <!-- Top menu on small screens -->
@@ -81,66 +71,31 @@ include 'connect.php';
         id="myOverlay"></div>
 
     <!-- !PAGE CONTENT! -->
-    <div class="w3-main w3-light-grey w3-half" style="margin-left:340px;margin-right:40px;">
+    <div class="w3-main w3-light-grey w3-twothird" style="margin-top:50px; margin-left:340px;margin-right:40px;">
 
         <div class="w3-container" style="margin-top:40px" id="showcase">
-            <h1 class="w3-xxxlarge"><b>Welcome to Panel</b></h1>
+            
+            <h1 class="w3-xxxlarge"><b>You are signed out</b></h1>
 
-            <!-- Contact -->
-
-            <h1 class=" w3-xxlarge w3-text-teal"><b>Please Select</b></h1>
-
-        </div>
-
-        <!-- End page content -->
-    </div>
-
-    <div class="w3-main" style="margin-top: 100px; margin-left:340px;margin-right:40px;">
-
-        <div class="" style="margin-top: 100px;">
-            <div class="w3-half w3-margin-bottom" style="margin-top: 20px;">
-                <form method="POST">
-                    <ul class="w3-ul w3-light-grey ">
-
-                        <li class="w3-light-grey ">
-                            <button class="w3-button w3-red w3-padding-large w3-hover-black" style="width: 200px;" name="recount">See
-                                MESSAGES</button>
-                        </li>
-
-                        <li class="w3-light-grey ">
-                            <button class="w3-button w3-red w3-padding-large w3-hover-black" style="width: 200px;" name="new">Enter
-                                NEW</button>
-                        </li>
-                    </ul>
-                </form>
-
-                <?PHP
-                    if(isset($_POST['recount'])) {
-                        Header('Location: messages.php');
-                    }
-
-                    if(isset($_POST['new'])) {
-                        Header('Location: form.php');
-                    }
-                ?>
-            </div>
+            <h1 class=" w3-xxlarge w3-text-teal"><b>See you later</b></h1>
 
         </div>
 
+       
     </div>
+
+     <!-- End page content -->
 
 
     <!-- W3.CSS Container -->
-    <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px">
+    <div class="w3-light-grey w3-container w3-padding-32" style="margin-top:150px;padding-right:58px">
         <p class="w3-right">Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS"
                 target="_blank" class="w3-hover-opacity">w3.css</a></p>
     </div>
 
 
-
-
-
     <script>
+
         // Script to open and close sidebar
         function w3_open() {
             document.getElementById("mySidebar").style.display = "block";

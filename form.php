@@ -76,7 +76,7 @@ if (!$verify == 1) {
 
             <a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-text-orange w3-hover-white">Form</a>
 
-            <a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Sign Out</a>
+            <a href="sign_out.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Sign Out</a>
         </div>
 
         <div class="w3-bar-block" style="margin-top: 60px;">
@@ -130,7 +130,8 @@ if (!$verify == 1) {
                 </div>
                 <div class="w3-section">
                     <label>Message</label>
-                    <input class="w3-input w3-border" type="text" name="message" required>
+                    <!-- <input class="w3-input w3-border" type="text" name="message" required> -->
+                    <textarea class="w3-border" wrap="hard" maxlength="2000" rows="3" cols="45"  required name="message" required></textarea>
                 </div>
                 <button type="submit" name="submit" class="w3-button w3-block w3-padding-large w3-blue-grey w3-margin-bottom">Record Entry</button>
             </form>
