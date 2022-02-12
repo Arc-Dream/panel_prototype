@@ -161,17 +161,19 @@ if (!$verify == 1) {
     <?PHP    
         function record() {
                     
-            $server = "localhost";
-            $user = "root";
-            $password = "123";
-            $db = "data_try";
-            $table = "heimir_data";
+            // $server = "localhost";
+            // $user = "root";
+            // $password = "123";
+            // $db = "data_try";
+            // $table = "heimir_data";
 
-            $conn = new mysqli($server, $user, $password, $db);
+            // $conn = new mysqli($server, $user, $password, $db);
 
-            if($conn -> connect_error) {
-                die("<br>Connection Failed".$conn -> connect_error);
-            }
+            // if($conn -> connect_error) {
+            //     die("<br>Connection Failed".$conn -> connect_error);
+            // }
+
+            include "connect.php";
 
             $name = mysqli_real_escape_string($conn,$_POST['name']);
             $email = mysqli_real_escape_string($conn,$_POST['email']);

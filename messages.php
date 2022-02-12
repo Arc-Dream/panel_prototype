@@ -61,9 +61,9 @@ include 'connect.php';
 
         <div class="w3-bar-block">
 
-            <a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Select</a>
+            <a href="entry.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Select</a>
 
-            <a href="#showcase" onclick="w3_close()"
+            <a href="messages.php" onclick="w3_close()"
                 class="w3-bar-item w3-button w3-text-orange w3-hover-white">Recount</a>
 
             <a href="sign_out.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Sign Out</a>
@@ -129,8 +129,8 @@ include 'connect.php';
             mysqli_free_result($result);
             
             
-            $id_array = array();
-            $selected = array();
+            // $id_array = array();
+            // $selected = array();
          
     ?>
 
@@ -152,8 +152,9 @@ include 'connect.php';
                 <div class="w3-grey w3-hover-blue-grey" style="margin-bottom: 40px;">
 
                     <div class="w3-container">
-                        <span class='w3-bar-item w3-button w3-xlarge w3-right'><input class='w3-check' type='checkbox' name='selected[]'
-                                checked='checked' value='<?PHP $selected_name ?>'></span>        
+                        <?PHP echo "<span class='w3-bar-item w3-button w3-xlarge w3-right'><input class='w3-check' type='checkbox' name='selected[]'
+                                checked='checked' value='".$selected_name."'></span>"; ?>
+        
                         <h3><?PHP echo $view['name']; ?></h3>
                         <p class="w3-opacity"><?PHP echo $view['email']; ?></p>
                         <p><?PHP echo $view['message']; ?></p>

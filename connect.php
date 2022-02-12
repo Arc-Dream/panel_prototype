@@ -3,7 +3,8 @@
     $user = "root";
     $password = "123";
     $db = "data_try";
-    $table = "";
+    $table = "heimir_data";
+    $deleted_table = "heimir_data_deleted";
 
     $conn = new mysqli($server, $user, $password, $db);
 
