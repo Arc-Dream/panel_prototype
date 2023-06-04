@@ -1,10 +1,10 @@
 <?php
     $server = "localhost";
     $user = "root";
-    $password = "123";
-    $db = "data_try";
-    $table = "heimir_data";
-    $deleted_table = "heimir_data_deleted";
+    $password = "";
+    $db = "db_name";
+    $table = "table_name";
+    $deleted_table = "table_deleted";
 
     $conn = new mysqli($server, $user, $password, $db);
 
